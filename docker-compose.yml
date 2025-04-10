@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: mydatabase
+      MYSQL_USER: user
+      MYSQL_PASSWORD: userpassword
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+
+  backend:
+    build: ./backend
+    restart: always
+    ports:
+      - "5000:5000"
+    environment:
+      DB_HOST: mysql
+      DB_USER: user
+      DB_PASSWORD: userpassword
+      DB_NAME: mydatabase
+    depends_on:
+      - mysql
+
+  frontend:
+    build: ./frontend
+    ports: 
+      - "3000:3000"
+    restart: always
+    depends_on:
+      - backend
+
+volumes:
+  mysql-data:
