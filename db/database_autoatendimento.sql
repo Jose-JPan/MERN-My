@@ -1,6 +1,6 @@
-CREATE DATABASE AutoAtendimento;
+# CREATE DATABASE AutoAtendimento;
 
-use AutoAtendimento;
+use mydatabase;
 
 CREATE TABLE tblCondicional (
     -- CondicionalID INTEGER(11) NOT NULL,

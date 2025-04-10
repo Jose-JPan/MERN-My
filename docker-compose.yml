@@ -3,7 +3,6 @@ version: '3.8'
 services:
   mysql:
     image: mysql:8.0
-    restart: always
     environment:
       MYSQL_ROOT_PASSWORD: rootpassword
       MYSQL_DATABASE: mydatabase
@@ -12,7 +11,7 @@ services:
     ports:
       - "3306:3306" # For MySQL Server
     volumes:
-      - mysql-data:/var/lib/mysql
+      # - mysql-data:/var/lib/mysql
       - ./db:/docker-entrypoint-initdb.d
 
   backend:
