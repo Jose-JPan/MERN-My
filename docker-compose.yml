@@ -19,7 +19,7 @@ services:
     ports:
       - "5000:5000"
     volumes:
-      - ./backend:/app
+      - ./backend:/app # Mount your local backend folder to /app inside container.
       - /app/node_modules # Important: Prevent overwriting node_modules inside container
     environment:
       DB_HOST: mysql
