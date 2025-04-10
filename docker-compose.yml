@@ -10,15 +10,17 @@ services:
       MYSQL_USER: user
       MYSQL_PASSWORD: userpassword
     ports:
-      - "3306:3306"
+      - "3306:3306" # For MySQL Server
     volumes:
       - mysql-data:/var/lib/mysql
 
   backend:
     build: ./backend
-    restart: always
     ports:
       - "5000:5000"
+    volumes:
+      - ./backend:/app
+      - /app/node_modules # Important: Prevent overwriting node_modules inside container
     environment:
       DB_HOST: mysql
       DB_USER: user
@@ -30,8 +32,10 @@ services:
   frontend:
     build: ./frontend
     ports: 
-      - "3000:3000"
-    restart: always
+      - "3000:3000" # For Node Express Server
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules # Same idea for frontend
     depends_on:
       - backend
 
