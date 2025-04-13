@@ -1,6 +1,8 @@
 # 1. Use official Node.js image
 FROM node:20
 
+RUN apt-get update && apt-get install -y jq
+
 # 2. Set working directory
 WORKDIR /app/backend
 
