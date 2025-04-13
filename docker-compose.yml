@@ -34,7 +34,6 @@ services:
       - "3000:3000" # For Node Express Server
     volumes:
       - ./frontend:/app/frontend
-      # - /app/node_modules # Same idea for frontend
     depends_on:
       - backend
 
