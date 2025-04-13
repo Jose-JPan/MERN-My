@@ -11,16 +11,15 @@ services:
     ports:
       - "3306:3306" # For MySQL Server
     volumes:
-      # - mysql-data:/var/lib/mysql
       - ./db:/docker-entrypoint-initdb.d
 
   backend:
     build: ./backend
     ports:
-      - "5000:5000"
+      - "5050:5050"
     volumes:
-      - ./backend:/app # Mount your local backend folder to /app inside container.
-      - /app/node_modules # Important: Prevent overwriting node_modules inside container
+      - ./backend:/app/backend # Mount your local backend folder to /app inside container.
+      # - /app/node_modules # Important: Prevent overwriting node_modules inside container
     environment:
       DB_HOST: mysql
       DB_USER: user
@@ -34,8 +33,8 @@ services:
     ports: 
       - "3000:3000" # For Node Express Server
     volumes:
-      - ./frontend:/app
-      - /app/node_modules # Same idea for frontend
+      - ./frontend:/app/frontend
+      # - /app/node_modules # Same idea for frontend
     depends_on:
       - backend
 

@@ -2,14 +2,14 @@
 FROM node:20
 
 # Set working directory
-WORKDIR /app
+WORKDIR /app/frontend
 
 # Copy package.json and install dependencies
 Copy package*.json ./
 RUN npm install
 
 # Copy all source files
-COPY . . 
+COPY . ./app/frontend
 
 # Start React app (development mode)
 CMD ["npm", "start"]
