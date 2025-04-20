@@ -19,8 +19,8 @@ COPY ./ /app/backend
 # 7. Make wait-for-it executable
 RUN chmod +x wait-for-it.sh
 
-# 7. Expose port 5050
+# 8. Expose port 5050
 EXPOSE 5050
 
-# 8. Start app after DB is ready
+# 9. Start app after DB is ready
 CMD ["./wait-for-it.sh", "mysql:3306", "--", "npm", "run", "dev"]

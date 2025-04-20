@@ -4,19 +4,19 @@ const Product = {
     
     getAll: async () => {
         try {
-            const [rows] = await pool.query('SELECT * FROM tblProdutos');
-            return rows;
+          const [rows] = await pool.query('SELECT * FROM tblProdutos');
+          return rows;
         } catch (err) {
-          throw err;
+            throw err;
         }
      },
     
     getById: async (id) => {
         try {
-            const [rows] = await pool.query('SELECT * FROM tblProdutos WHERE ProdutoID= ?', [id]);
-            return rows[0]; // Return the first product (or undefined if not found)
+          const [rows] = await pool.query('SELECT * FROM tblProdutos WHERE ProdutoID= ?', [id]);
+          return rows[0]; // Return the first product (or undefined if not found)
         } catch (err) {
-          throw err;
+            throw err;
         }
     },
 
@@ -47,7 +47,7 @@ const Product = {
 
           return [result];
         } catch (err) {
-          throw err;
+            throw err;
         }
     },
 
@@ -103,19 +103,18 @@ const Product = {
               ]
          );
 
-         return [result];
-        }  catch (err) {
-         throw err;
+          return [result];
+        } catch (err) {
+            throw err;
         }
-
     },
 
     delete: async (id) => {
-        try {
-            const [result] = await pool.query('DELETE FROM tblProdutos WHERE ProdutoID = ?', [id]);
-            return [result];
+      try {
+        const [result] = await pool.query('DELETE FROM tblProdutos WHERE ProdutoID = ?', [id]);
+        return [result];
         } catch (err) {
-          throw err;
+             throw err;
         }
     },
 

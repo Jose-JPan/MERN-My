@@ -17,7 +17,8 @@ const ProductDetails = () => {
   return (
     <div>
       <h2>{product.Descricao}</h2>
-      <p>Preço: R$ {Number(product.Preco).toFixed(2)}</p>
+      {/* <p>Preço: R$ {Number(product.Preco).toFixed(2)}</p> */}
+      <p>Preço: R$ {product.Preco.}</p>
       <p>Unidade: {product.Unidade}</p>
       {/* more fields if needed */}
     </div>

@@ -21,10 +21,9 @@ services:
   backend:
     build: ./backend
     ports:
-      - "5050:5050"
+      - "5050:5050" # For Node.js Server
     volumes:
-      - ./backend:/app/backend # Mount your local backend folder to /app inside container.
-      # - /app/node_modules # Important: Prevent overwriting node_modules inside container
+      - ./backend:/app/backend # Mount your local backend folder to /app/backend inside container.
     environment:
       DB_HOST: mysql
       DB_USER: user
@@ -36,7 +35,7 @@ services:
   frontend:
     build: ./frontend
     ports: 
-      - "3000:3000" # For Node Express Server
+      - "3000:3000" # For API requests
     volumes:
       - ./frontend:/app/frontend
     depends_on:

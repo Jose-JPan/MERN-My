@@ -18,14 +18,7 @@ INSERT INTO tblCondicional (ProdutoID, Descricao, QtdMinima, QtdMaxima, Obrigato
 
 
 
-
-CREATE TABLE tblConfigDelivery (
-    ConfigDeliveryID        INTEGER NOT NULL AUTO_INCREMENT,
-    NomeFantasia            VARCHAR(50) NOT NULL,
-    AliasLojaVirtual        VARCHAR(50) NOT NULL,
-    FormaTaxaEntrega        VARCHAR(50) NOT NULL,
-    TempoEntrega            INTEGER(11) NOT NULL,
-    TempoRetirada           INTEGER(11) NOT NULL,
+CREATE TABLE tblConfigDelivery ( ConfigDeliveryID        INTEGER NOT NULL AUTO_INCREMENT, NomeFantasia            VARCHAR(50) NOT NULL, AliasLojaVirtual        VARCHAR(50) NOT NULL, FormaTaxaEntrega        VARCHAR(50) NOT NULL, TempoEntrega            INTEGER(11) NOT NULL, TempoRetirada           INTEGER(11) NOT NULL,
     ValorMinCompra          VARCHAR(50) NOT NULL,
     BaseCalculoValorPizza   VARCHAR(50) NOT NULL,
     FecharaLoja             VARCHAR(50) NOT NULL,
@@ -82,20 +75,20 @@ INSERT INTO tblIngredientes (Descricao, valor, ProdutoID, Ativo) VALUES("Feijao"
 
 
 CREATE TABLE tblProdutos (
-    ProdutoID  INTEGER      NOT NULL AUTO_INCREMENT,
-    Codigo     VARCHAR(13)  NOT NULL,
-    Descricao  VARCHAR(50)  NOT NULL,
-    Unidade    VARCHAR(2)   NOT NULL,
-    Preco      VARCHAR(10)  NOT NULL,
-    Estoque    VARCHAR(10)  NOT NULL,
-    Ncm        VARCHAR(8)   NOT NULL,
-    Cst        VARCHAR(10)  NOT NULL,
-    Aliquota   VARCHAR(2)   NOT NULL,
-    GrupoID    INTEGER(11)  NOT NULL,
-    Grupo      VARCHAR(40)  NOT NULL,
-    Ativo      TINYINT(1)   NOT NULL DEFAULT 1,
-    Observacao VARCHAR(200) NOT NULL,
-    Imagem     VARCHAR(50)  NOT NULL,
+    ProdutoID  INTEGER       NOT NULL AUTO_INCREMENT,
+    Codigo     VARCHAR(13)   NOT NULL,
+    Descricao  VARCHAR(50)   NOT NULL,
+    Unidade    VARCHAR(2)    NOT NULL,
+    Preco      DECIMAL(10,2) NOT NULL,      
+    Estoque    VARCHAR(10)   NOT NULL, 
+    Ncm        VARCHAR(8)    NOT NULL,
+    Cst        VARCHAR(10)   NOT NULL,
+    Aliquota   VARCHAR(2)    NOT NULL,
+    GrupoID    INTEGER(11)   NOT NULL,
+    Grupo      VARCHAR(40)   NOT NULL,
+    Ativo      TINYINT(1)    NOT NULL DEFAULT 1,
+    Observacao VARCHAR(200)  NOT NULL,
+    Imagem     VARCHAR(50)   NOT NULL,
     PRIMARY KEY (ProdutoID)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
