@@ -12,6 +12,11 @@ services:
       - "3306:3306" # For MySQL Server
     volumes:
       - ./db:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
 
   backend:
     build: ./backend
