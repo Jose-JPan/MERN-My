@@ -20,7 +20,7 @@ function App() {
          <Routes>
              <Route path="/" element={<ProductList />} />
              <Route path="/products" element={<ProductList />} />
-             <Route path="/product/:id" element={<ProductDetails />} />
+             <Route path="/products/:id" element={<ProductDetails />} />
              <Route path="/new" element={<ProductForm />} />
              <Route path="/edit/:id" element={<ProductForm />} />
              {/* 👇 Catch-all route for unknown paths */}
