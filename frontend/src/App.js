@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import ProductList from './components/ProductList';
+import ProductForm from './components/ProductForm';
 
-function App() {
+// Optional: A simple 404 component
+function NotFound() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+     <div>
+         <h1>404 - Page Not Found</h1>
+         <p>Oops! Nothing to see here.</p>
+     </div>
   );
 }
 
+function App() {
+ return (
+     <Router>
+         <Routes>
+             <Route path="/" element={<ProductList />} />
+             <Route path="/products" element={<ProductList />} />
+             <Route path="/new" element={<ProductForm />} />
+             <Route path="/edit/:id" element={<ProductForm />} />
+             {/* 👇 Catch-all route for unknown paths */}
+             <Route path="*" element={<NotFound />} />
+         </Routes>
+     </Router>
+ );   
+}
+
+                                                                                              
 export default App;

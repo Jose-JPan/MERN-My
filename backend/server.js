@@ -11,7 +11,7 @@ app.use(express.json()); // to parse JSON bodies
 import productRoutes from './routes/productRoutes.js';
 
 try {
-    await connectDB();
+  await connectDB();
 } catch (error) {
     console.error('Failed to start server because database connection failed.');
     process.exit(1); // Exit app if db is essential
