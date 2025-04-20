@@ -7,7 +7,7 @@ RUN apt-get update && apt-get install -y vim
 # 3. Set working directory
 WORKDIR /app/frontend
 
-# 4. Copy package.json and install dependencies
+# 4. Copy package.json and package-lock.json
 Copy package*.json ./
 
 # 5. Install frontend dependencies

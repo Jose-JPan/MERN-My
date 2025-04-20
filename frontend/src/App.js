@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import ProductList from './components/ProductList';
+import ProductDetails from './components/ProductDetails';
 import ProductForm from './components/ProductForm';
 
 // Optional: A simple 404 component
@@ -19,6 +20,7 @@ function App() {
          <Routes>
              <Route path="/" element={<ProductList />} />
              <Route path="/products" element={<ProductList />} />
+             <Route path="/product/:id" element={<ProductDetails />} />
              <Route path="/new" element={<ProductForm />} />
              <Route path="/edit/:id" element={<ProductForm />} />
              {/* 👇 Catch-all route for unknown paths */}
