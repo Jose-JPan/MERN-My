@@ -32,7 +32,7 @@ const ProductList = () => {
 
       return (
         <div>
-            <h2>Product List</h2>
+            <h2 className="font-bold text-red-500">Product List</h2>
             {loading && <p>Loading...</p>}
             {error && <p style={{ color: 'red' }}>{error}</p>}
             {!loading && !products.length && <p>No products found.</p>}
