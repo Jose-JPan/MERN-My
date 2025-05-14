@@ -36,6 +36,8 @@ services:
     build: ./frontend
     ports: 
       - "3000:3000" # For API requests
+    env_file:
+      - ./frontend/.env
     volumes:
       - ./frontend:/app/frontend
     depends_on:
