@@ -13,6 +13,10 @@
     $ npm install
 
 # Third Step
+    In the root folder of the Application edit the .env file with your machine IP
+    $ ifconfig | grep inet
+
+# Fourth Step
     Go to the root folder of the Project and build the Docker image
     $ docker compose build
 

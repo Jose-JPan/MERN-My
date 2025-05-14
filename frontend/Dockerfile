@@ -16,6 +16,8 @@ RUN npm install
 # 6. Copy the rest of the frontend code
 COPY . ./app/frontend
 
+ENV HOST 0.0.0.0
+
 # 7. Expose default React dev server port
 EXPOSE 3000
 
